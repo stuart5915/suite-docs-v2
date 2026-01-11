@@ -1,71 +1,149 @@
 /**
  * SUITE Docs Custom Styling
- * Orange/Purple gradient theme matching getsuite.app
+ * Matching getsuite.app main site styling
  */
-
-/* SUITE Brand Colors */
-:root {
-  --ifm-color-primary: #ff9500;
-  --ifm-color-primary-dark: #e68600;
-  --ifm-color-primary-darker: #d97d00;
-  --ifm-color-primary-darkest: #b36600;
-  --ifm-color-primary-light: #ffa31a;
-  --ifm-color-primary-lighter: #ffab33;
-  --ifm-color-primary-lightest: #ffc266;
-
-  --ifm-background-color: #fef6ed;
-  --ifm-navbar-background-color: rgba(255, 255, 255, 0.95);
-  --ifm-font-family-base: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --ifm-heading-font-weight: 800;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 149, 0, 0.1);
-}
-
-/* Dark mode */
-[data-theme='dark'] {
-  --ifm-color-primary: #ff9500;
-  --ifm-color-primary-dark: #e68600;
-  --ifm-color-primary-darker: #d97d00;
-  --ifm-color-primary-darkest: #b36600;
-  --ifm-color-primary-light: #ffa31a;
-  --ifm-color-primary-lighter: #ffab33;
-  --ifm-color-primary-lightest: #ffc266;
-  --ifm-background-color: #1a0a2e;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 149, 0, 0.2);
-}
 
 /* Import Nunito font */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
 
+/* SUITE Brand Colors - Warm Cream Theme */
+:root {
+  /* Primary orange */
+  --ifm-color-primary: #ff9500;
+  --ifm-color-primary-dark: #e68600;
+  --ifm-color-primary-darker: #d97d00;
+  --ifm-color-primary-darkest: #b36600;
+  --ifm-color-primary-light: #ffa31a;
+  --ifm-color-primary-lighter: #ffab33;
+  --ifm-color-primary-lightest: #ffc266;
+
+  /* Warm cream background like main site */
+  --ifm-background-color: #fef6ed;
+  --ifm-background-surface-color: #fff9f4;
+
+  /* Navbar */
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.95);
+  --ifm-navbar-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+
+  /* Sidebar */
+  --ifm-menu-color: #5a4a6f;
+  --ifm-menu-color-active: #ff9500;
+  --ifm-menu-color-background-active: rgba(255, 149, 0, 0.1);
+
+  /* Typography */
+  --ifm-font-family-base: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ifm-heading-font-weight: 800;
+  --ifm-font-weight-bold: 700;
+
+  /* Other */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 149, 0, 0.1);
+  --ifm-toc-border-color: rgba(255, 149, 0, 0.2);
+}
+
+/* Dark mode */
+[data-theme='dark'] {
+  --ifm-background-color: #1a0a2e;
+  --ifm-background-surface-color: #2d1b4e;
+  --ifm-navbar-background-color: rgba(26, 10, 46, 0.95);
+  --ifm-menu-color: #d4c5e8;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 149, 0, 0.2);
+}
+
 /* Navbar styling */
 .navbar {
   backdrop-filter: blur(20px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 149, 0, 0.1);
+  padding: 8px 24px;
 }
 
 .navbar__logo img {
-  height: 32px;
+  height: 36px;
 }
 
-/* Sidebar enhancements */
+.navbar__title {
+  font-weight: 800;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #ff9500, #ff6b9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar__link {
+  font-weight: 700;
+  color: #5a4a6f;
+  transition: color 0.2s;
+}
+
+.navbar__link:hover {
+  color: #ff9500;
+}
+
+/* Sidebar styling */
+.menu {
+  background: transparent;
+  padding: 16px 12px;
+}
+
+.menu__link {
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
 .menu__link--active {
-  background: linear-gradient(135deg, rgba(255, 149, 0, 0.15), rgba(168, 85, 247, 0.1));
-  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255, 149, 0, 0.15), rgba(168, 85, 247, 0.1)) !important;
+  color: #ff9500 !important;
+  font-weight: 700;
 }
 
-/* Hero gradient for homepage */
-.hero--primary {
-  background: linear-gradient(135deg, #fef6ed 0%, #ffe4d4 20%, #ffd4e3 50%, #e8d5f9 80%, #d4e5ff 100%);
+.menu__link:hover:not(.menu__link--active) {
+  background: rgba(255, 149, 0, 0.08);
 }
 
-/* Footer styling */
-.footer--dark {
-  background: linear-gradient(135deg, #2d1b4e, #1a0a2e);
+.menu__list-item-collapsible>.menu__link {
+  font-weight: 700;
 }
 
-/* Admonition styling */
-.admonition {
-  border-radius: 12px;
+/* Main content area */
+.main-wrapper {
+  background: linear-gradient(180deg, #fef6ed 0%, #fff9f4 100%);
+}
+
+[data-theme='dark'] .main-wrapper {
+  background: linear-gradient(180deg, #1a0a2e 0%, #2d1b4e 100%);
+}
+
+/* Article content */
+article {
+  max-width: 800px;
+}
+
+article h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #2d1b4e, #5a4a6f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='dark'] article h1 {
+  background: linear-gradient(135deg, #fff, #d4c5e8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+article h2,
+article h3 {
+  color: #2d1b4e;
+}
+
+[data-theme='dark'] article h2,
+[data-theme='dark'] article h3 {
+  color: #fff;
 }
 
 /* Links */
@@ -73,21 +151,153 @@ a {
   font-weight: 600;
 }
 
-/* Content cards */
-.card {
-  border-radius: 16px;
-  overflow: hidden;
+article a {
+  color: #ff9500;
 }
 
-/* Purple secondary color helper */
-.text-purple {
-  color: #a855f7;
+article a:hover {
+  color: #e68600;
+  text-decoration: underline;
 }
 
-/* Quote styling */
+/* Blockquotes */
 blockquote {
   background: linear-gradient(135deg, rgba(255, 149, 0, 0.08), rgba(168, 85, 247, 0.05));
   border-left: 4px solid #ff9500;
   border-radius: 0 12px 12px 0;
   padding: 16px 20px;
+  color: #5a4a6f;
+}
+
+[data-theme='dark'] blockquote {
+  color: #d4c5e8;
+}
+
+/* Admonitions */
+.admonition {
+  border-radius: 12px;
+  border: none;
+}
+
+.admonition-note {
+  background: rgba(99, 102, 241, 0.1);
+  border-left: 4px solid #6366f1;
+}
+
+.admonition-tip {
+  background: rgba(34, 197, 94, 0.1);
+  border-left: 4px solid #22c55e;
+}
+
+.admonition-info {
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 4px solid #3b82f6;
+}
+
+.admonition-caution {
+  background: rgba(251, 191, 36, 0.1);
+  border-left: 4px solid #fbbf24;
+}
+
+.admonition-danger {
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid #ef4444;
+}
+
+/* Table of Contents */
+.table-of-contents {
+  border-left: 2px solid rgba(255, 149, 0, 0.2);
+}
+
+.table-of-contents__link {
+  color: #5a4a6f;
+}
+
+.table-of-contents__link--active {
+  color: #ff9500;
+  font-weight: 700;
+}
+
+/* Footer */
+.footer--dark {
+  background: linear-gradient(135deg, #2d1b4e, #1a0a2e);
+}
+
+.footer__title {
+  color: #ff9500;
+}
+
+/* Code blocks */
+pre {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 149, 0, 0.1);
+}
+
+code {
+  border-radius: 6px;
+  background: rgba(255, 149, 0, 0.1);
+  color: #d97d00;
+}
+
+[data-theme='dark'] code {
+  background: rgba(255, 149, 0, 0.2);
+  color: #ffa31a;
+}
+
+/* Tables */
+table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th {
+  background: rgba(255, 149, 0, 0.1);
+}
+
+/* Cards / Feature boxes */
+.card {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 149, 0, 0.1);
+  background: white;
+}
+
+[data-theme='dark'] .card {
+  background: #2d1b4e;
+  border-color: rgba(255, 149, 0, 0.2);
+}
+
+/* Back to SUITE link in navbar */
+.navbar__item[href*="getsuite.app"] {
+  color: #a855f7 !important;
+  font-weight: 700;
+}
+
+/* Breadcrumbs */
+.breadcrumbs__link {
+  color: #5a4a6f;
+}
+
+.breadcrumbs__link:hover {
+  color: #ff9500;
+}
+
+/* Pagination */
+.pagination-nav__link {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 149, 0, 0.2);
+  transition: all 0.2s;
+}
+
+.pagination-nav__link:hover {
+  border-color: #ff9500;
+  background: rgba(255, 149, 0, 0.05);
+}
+
+.pagination-nav__sublabel {
+  color: #888;
+}
+
+.pagination-nav__label {
+  color: #ff9500;
+  font-weight: 700;
 }
