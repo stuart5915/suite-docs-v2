@@ -1,0 +1,8 @@
+{
+    "label": "🎓 School",
+    "position": 4,
+    "link": {
+        "type": "doc",
+        "id": "school/index"
+    }
+}
