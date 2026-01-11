@@ -121,16 +121,25 @@ body {
 /* Main content area - warm cream */
 .main-wrapper {
   background: linear-gradient(180deg, #fef6ed 0%, #fff9f4 100%) !important;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .docMainContainer_src-theme-DocPage-Layout-Main-styles-module {
   background: transparent !important;
 }
 
-/* Article content */
+/* Constrain overall page width */
+.docPage_src-theme-DocPage-Layout-styles-module {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Article content - narrower and centered */
 article {
-  max-width: 800px;
-  padding: 20px;
+  max-width: 750px;
+  padding: 24px 40px;
+  margin: 0 auto;
 }
 
 article h1 {
