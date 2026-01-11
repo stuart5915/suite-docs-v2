@@ -9,90 +9,79 @@ title: "🏗️ Systems View"
 
 ---
 
-## High-Level Architecture
+## AI Fleet Architecture
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                       SUITE HUB                          │
-│                    (Discord Server)                       │
-├─────────────────────────────────────────────────────────┤
-│  FORGE Bot ←→ Prompt Queue ←→ Watcher ←→ Cadence AI     │
-└─────────────────────────────────────────────────────────┘
-         ↓                                    ↓
-    ┌─────────┐                          ┌─────────┐
-    │ GitHub  │                          │  Expo   │
-    │  Repos  │──────────────────────────│ Deploy  │
-    └─────────┘                          └─────────┘
-         ↓
-    ┌─────────────────────────────────────────────────────┐
-    │                   getsuite.app                       │
-    │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌────────┐ │
-    │  │App Store│  │Dashboard│  │  Vault  │  │  Docs  │ │
-    │  └─────────┘  └─────────┘  └─────────┘  └────────┘ │
-    └─────────────────────────────────────────────────────┘
-```
+![AI Fleet System](/img/diagrams/ai-fleet.png)
+
+The AI Fleet is the backbone of autonomous app building — FORGE, Watcher, and Cadence working together.
 
 ---
 
-## Components
+## FORGE Discord Bot
 
-### FORGE Bot
+![FORGE Discord Bot](/img/diagrams/forge-discord-bot.png)
+
 Discord bot handling:
 - Prompt submission (`/addition`)
 - App management (`/create-app`, `/delete-app`)
 - Status notifications
 - User commands
 
-### Watcher
+---
+
+## Watcher Bot
+
+![Watcher Bot](/img/diagrams/watcher-bot.png)
+
 Python service on PC that:
 - Monitors prompt queue files
 - Triggers IDE to process prompts
 - Auto-pulls changes from GitHub
 - Syncs between PC and laptop
 
-### Cadence AI
-AI model (Gemini) that:
-- Interprets natural language prompts
-- Generates code changes
-- Iterates based on feedback
-- Manages file operations
+---
 
-### PC Prompt Server
-Local web interface for:
-- Viewing prompt queue
-- Manual prompt management
-- Toggle auto-pull
-- Connection status
+## PC ↔ Laptop Sync
+
+![PC Laptop Sync](/img/diagrams/pc-laptop-sync.png)
+
+Seamless synchronization between development machines.
 
 ---
 
-## Data Flow
+## App Store Flow
 
-### Prompt Lifecycle
+![App Store](/img/diagrams/app-store.png)
 
-```
-1. User submits /addition → FORGE creates prompt file
-2. Watcher detects new file → Triggers IDE
-3. IDE runs Cadence → Generates code
-4. Code committed to GitHub → Pushed
-5. Laptop auto-pulls (if enabled)
-6. FORGE notifies completion
-```
+How apps flow from creation to the SUITE App Store.
 
 ---
 
-## Smart Contracts
+## Treasury Architecture
 
-### Treasury
+![Treasury](/img/diagrams/treasury.png)
+
+Smart contract architecture:
 - Holds ETH backing SUITE
 - Handles mint (ETH → SUITE)
 - Handles burn (SUITE → ETH)
 - Proportional share system
 
-### SUITE Token
-- ERC-20 on Base
-- Minted/burned by Treasury only
-- Tracks total supply
+---
+
+## Authentication Flow
+
+![SUITE Authentication](/img/diagrams/suite-authentication.png)
+
+How users authenticate across SUITE apps.
+
+---
+
+## Content Marketplace
+
+![Content Marketplace](/img/diagrams/content-marketplace.png)
+
+The flow of content monetization in the ecosystem.
 
 ---
 
