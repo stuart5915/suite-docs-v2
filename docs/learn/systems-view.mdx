@@ -1,0 +1,255 @@
+---
+sidebar_position: 8
+title: "🏗️ Systems View"
+---
+
+import styles from './systems-view.module.css';
+
+# 🏗️ Systems View
+
+**A technical overview of the SUITE ecosystem architecture. Click any step to see the logic behind it.**
+
+---
+
+## 🤖 AI Fleet
+
+**Autonomous app creation system. Creates polished apps 24/7 without human intervention.**
+
+<div className={styles.systemLayout}>
+  <div className={styles.systemDiagram}>
+    <img src="/img/diagrams/ai-fleet.png" alt="AI Fleet System Diagram" />
+  </div>
+  <div className={styles.systemDetails}>
+    <details>
+      <summary>Human requests? → DO THOSE FIRST</summary>
+      <p>When a human submits a bug report or feature request, drop everything and handle it first.</p>
+    </details>
+    <details>
+      <summary>Queue empty? → PROCEED TO TELOS</summary>
+      <p>If there are no pending human requests, enter autonomous TELOS mode to build new apps.</p>
+    </details>
+    <details>
+      <summary>Analyze app store trends</summary>
+      <p>Fetch top 100 apps from Product Hunt, App Store, Play Store. Categorize by productivity, health, finance, etc.</p>
+    </details>
+    <details>
+      <summary>Read user reviews</summary>
+      <p>Extract common features and pain points from app reviews to understand what users want.</p>
+    </details>
+    <details>
+      <summary>Identify gaps/opportunities</summary>
+      <p>Find underserved niches with high demand but low supply. Score opportunities by market size and feasibility.</p>
+    </details>
+  </div>
+</div>
+
+---
+
+## 🤖 FORGE Discord Bot
+
+**Discord bot for prompt submission, app management, and notifications.**
+
+<div className={styles.systemLayout}>
+  <div className={styles.systemDiagram}>
+    <img src="/img/diagrams/forge-discord-bot.png" alt="FORGE Discord Bot" />
+  </div>
+  <div className={styles.systemDetails}>
+    <details>
+      <summary>/addition — Submit a prompt</summary>
+      <p>Users submit natural language prompts that get added to the queue for Cadence to process.</p>
+    </details>
+    <details>
+      <summary>/create-app — Create a new app</summary>
+      <p>Creates a new GitHub repository and sets up the scaffolding for a new SUITE app.</p>
+    </details>
+    <details>
+      <summary>/delete-app — Remove an app</summary>
+      <p>Deletes an app repository (with confirmation). Irreversible.</p>
+    </details>
+    <details>
+      <summary>Status notifications</summary>
+      <p>DMs users when their prompts complete, fail, or need info.</p>
+    </details>
+  </div>
+</div>
+
+---
+
+## 👁️ Watcher Bot
+
+**Python service that monitors prompts and syncs code between machines.**
+
+<div className={styles.systemLayout}>
+  <div className={styles.systemDiagram}>
+    <img src="/img/diagrams/watcher-bot.png" alt="Watcher Bot" />
+  </div>
+  <div className={styles.systemDetails}>
+    <details>
+      <summary>Monitor prompt queue</summary>
+      <p>Watches the prompts folder for new files and triggers processing.</p>
+    </details>
+    <details>
+      <summary>Trigger IDE processing</summary>
+      <p>Sends the prompt to the Antigravity IDE which runs Cadence AI to generate code.</p>
+    </details>
+    <details>
+      <summary>Auto-pull changes</summary>
+      <p>When prompts complete on PC, automatically pulls latest code to laptop.</p>
+    </details>
+    <details>
+      <summary>Git push with retry</summary>
+      <p>Commits and pushes code changes. Retries with rebase if remote has updates.</p>
+    </details>
+  </div>
+</div>
+
+---
+
+## 💻 PC ↔ Laptop Sync
+
+**Seamless synchronization between development machines.**
+
+<div className={styles.systemLayout}>
+  <div className={styles.systemDiagram}>
+    <img src="/img/diagrams/pc-laptop-sync.png" alt="PC Laptop Sync" />
+  </div>
+  <div className={styles.systemDetails}>
+    <details>
+      <summary>PC as primary build machine</summary>
+      <p>The PC runs the watcher and processes all Cadence prompts.</p>
+    </details>
+    <details>
+      <summary>GitHub as source of truth</summary>
+      <p>All code flows through GitHub. Both machines push/pull from the same repos.</p>
+    </details>
+    <details>
+      <summary>Auto-pull on laptop</summary>
+      <p>Toggle in dashboard to automatically pull latest changes when prompts complete.</p>
+    </details>
+  </div>
+</div>
+
+---
+
+## 🏪 App Store Flow
+
+**How apps flow from creation to the SUITE App Store.**
+
+<div className={styles.systemLayout}>
+  <div className={styles.systemDiagram}>
+    <img src="/img/diagrams/app-store.png" alt="App Store" />
+  </div>
+  <div className={styles.systemDetails}>
+    <details>
+      <summary>Developer builds app</summary>
+      <p>Using Cadence AI or manual coding, developer creates an Expo app.</p>
+    </details>
+    <details>
+      <summary>Submit for review</summary>
+      <p>Run /publish to submit app to the review queue.</p>
+    </details>
+    <details>
+      <summary>Community review</summary>
+      <p>Reviewers test the app and vote approve/reject based on quality criteria.</p>
+    </details>
+    <details>
+      <summary>Live in App Store</summary>
+      <p>Approved apps appear in the SUITE App Store for users to discover and use.</p>
+    </details>
+  </div>
+</div>
+
+---
+
+## 🏦 Treasury Architecture
+
+**Smart contract that holds ETH backing all SUITE tokens.**
+
+<div className={styles.systemLayout}>
+  <div className={styles.systemDiagram}>
+    <img src="/img/diagrams/treasury.png" alt="Treasury" />
+  </div>
+  <div className={styles.systemDetails}>
+    <details>
+      <summary>Mint (ETH → SUITE)</summary>
+      <p>Deposit ETH into Treasury, receive SUITE tokens at current exchange rate.</p>
+    </details>
+    <details>
+      <summary>Burn (SUITE → ETH)</summary>
+      <p>Send SUITE back to Treasury, receive proportional ETH from the pool.</p>
+    </details>
+    <details>
+      <summary>Floor price guarantee</summary>
+      <p>Floor = Treasury ETH ÷ Total SUITE Supply. Always redeemable at this rate.</p>
+    </details>
+    <details>
+      <summary>Proportional shares</summary>
+      <p>Treasury uses share-based accounting to ensure it's always solvent.</p>
+    </details>
+  </div>
+</div>
+
+---
+
+## 🔐 Authentication Flow
+
+**How users authenticate across SUITE apps.**
+
+<div className={styles.systemLayout}>
+  <div className={styles.systemDiagram}>
+    <img src="/img/diagrams/suite-authentication.png" alt="SUITE Authentication" />
+  </div>
+  <div className={styles.systemDetails}>
+    <details>
+      <summary>Connect wallet</summary>
+      <p>Users connect their Ethereum wallet (MetaMask, WalletConnect, etc.).</p>
+    </details>
+    <details>
+      <summary>Sign message</summary>
+      <p>Wallet signs a message to prove ownership. No gas fees required.</p>
+    </details>
+    <details>
+      <summary>Session created</summary>
+      <p>Backend creates a session tied to the wallet address. User is authenticated.</p>
+    </details>
+  </div>
+</div>
+
+---
+
+## 📸 Content Marketplace
+
+**The flow of content monetization in the ecosystem.**
+
+<div className={styles.systemLayout}>
+  <div className={styles.systemDiagram}>
+    <img src="/img/diagrams/content-marketplace.png" alt="Content Marketplace" />
+  </div>
+  <div className={styles.systemDetails}>
+    <details>
+      <summary>Creator uploads content</summary>
+      <p>Creators upload premium content (tools, templates, media) to their apps.</p>
+    </details>
+    <details>
+      <summary>Set SUITE price</summary>
+      <p>Creator sets the price in SUITE tokens for access to the content.</p>
+    </details>
+    <details>
+      <summary>User pays SUITE</summary>
+      <p>Users pay SUITE to unlock content. 70% goes to creator, 20% to treasury, 10% to giving.</p>
+    </details>
+  </div>
+</div>
+
+---
+
+## 🔒 Security Model
+
+- **Isolated repos** — Each app in its own repository
+- **No cross-access** — Apps can't modify other apps
+- **Prompt filtering** — Dangerous commands blocked
+- **Human approval** — Critical operations require review
+
+---
+
+[🤖 AI Fleet →](/build/ai-fleet) | [👨‍💻 Developer Guide →](/build/developer)
