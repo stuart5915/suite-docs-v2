@@ -1,6 +1,6 @@
 /**
  * SUITE Docs Custom Styling
- * Matching getsuite.app main site styling
+ * Matching getsuite.app warm cream style
  */
 
 /* Import Nunito font */
@@ -19,21 +19,22 @@
 
   /* Warm cream background like main site */
   --ifm-background-color: #fef6ed;
-  --ifm-background-surface-color: #fff9f4;
+  --ifm-background-surface-color: #ffffff;
 
   /* Navbar */
-  --ifm-navbar-background-color: rgba(255, 255, 255, 0.95);
-  --ifm-navbar-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 
   /* Sidebar */
   --ifm-menu-color: #5a4a6f;
   --ifm-menu-color-active: #ff9500;
-  --ifm-menu-color-background-active: rgba(255, 149, 0, 0.1);
+  --ifm-menu-color-background-active: rgba(255, 149, 0, 0.12);
 
   /* Typography */
   --ifm-font-family-base: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --ifm-heading-font-weight: 800;
   --ifm-font-weight-bold: 700;
+  --ifm-font-color-base: #2d1b4e;
 
   /* Other */
   --ifm-code-font-size: 95%;
@@ -41,20 +42,18 @@
   --ifm-toc-border-color: rgba(255, 149, 0, 0.2);
 }
 
-/* Dark mode */
-[data-theme='dark'] {
-  --ifm-background-color: #1a0a2e;
-  --ifm-background-surface-color: #2d1b4e;
-  --ifm-navbar-background-color: rgba(26, 10, 46, 0.95);
-  --ifm-menu-color: #d4c5e8;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 149, 0, 0.2);
+/* Global background - warm cream gradient */
+html,
+body {
+  background: linear-gradient(180deg, #fef6ed 0%, #fff5eb 50%, #ffeee0 100%) !important;
 }
 
-/* Navbar styling */
+/* Navbar styling - white with subtle shadow */
 .navbar {
-  backdrop-filter: blur(20px);
+  background: white !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid rgba(255, 149, 0, 0.1);
-  padding: 8px 24px;
+  padding: 8px 20px;
 }
 
 .navbar__logo img {
@@ -64,25 +63,28 @@
 .navbar__title {
   font-weight: 800;
   font-size: 1.2rem;
-  background: linear-gradient(135deg, #ff9500, #ff6b9d);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #2d1b4e !important;
 }
 
 .navbar__link {
   font-weight: 700;
-  color: #5a4a6f;
+  color: #5a4a6f !important;
   transition: color 0.2s;
 }
 
 .navbar__link:hover {
-  color: #ff9500;
+  color: #ff9500 !important;
 }
 
-/* Sidebar styling */
+/* Sidebar container - white background */
+.theme-doc-sidebar-container {
+  background: white !important;
+  border-right: 1px solid rgba(255, 149, 0, 0.1);
+}
+
+/* Sidebar menu */
 .menu {
-  background: transparent;
+  background: white !important;
   padding: 16px 12px;
 }
 
@@ -90,69 +92,76 @@
   border-radius: 10px;
   padding: 10px 14px;
   font-weight: 600;
+  color: #5a4a6f;
   transition: all 0.2s;
 }
 
 .menu__link--active {
-  background: linear-gradient(135deg, rgba(255, 149, 0, 0.15), rgba(168, 85, 247, 0.1)) !important;
+  background: linear-gradient(135deg, rgba(255, 149, 0, 0.15), rgba(255, 149, 0, 0.08)) !important;
   color: #ff9500 !important;
   font-weight: 700;
 }
 
 .menu__link:hover:not(.menu__link--active) {
-  background: rgba(255, 149, 0, 0.08);
+  background: rgba(255, 149, 0, 0.06);
+  color: #ff9500;
 }
 
 .menu__list-item-collapsible>.menu__link {
   font-weight: 700;
+  color: #2d1b4e;
 }
 
-/* Main content area */
+/* Category labels */
+.menu__list-item--collapsed .menu__caret::before,
+.menu__list-item--expanded .menu__caret::before {
+  filter: none;
+}
+
+/* Main content area - warm cream */
 .main-wrapper {
-  background: linear-gradient(180deg, #fef6ed 0%, #fff9f4 100%);
+  background: linear-gradient(180deg, #fef6ed 0%, #fff9f4 100%) !important;
 }
 
-[data-theme='dark'] .main-wrapper {
-  background: linear-gradient(180deg, #1a0a2e 0%, #2d1b4e 100%);
+.docMainContainer_src-theme-DocPage-Layout-Main-styles-module {
+  background: transparent !important;
 }
 
 /* Article content */
 article {
   max-width: 800px;
+  padding: 20px;
 }
 
 article h1 {
-  font-size: 2.5rem;
-  background: linear-gradient(135deg, #2d1b4e, #5a4a6f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-[data-theme='dark'] article h1 {
-  background: linear-gradient(135deg, #fff, #d4c5e8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-article h2,
-article h3 {
+  font-size: 2.2rem;
   color: #2d1b4e;
+  font-weight: 800;
 }
 
-[data-theme='dark'] article h2,
-[data-theme='dark'] article h3 {
-  color: #fff;
+article h2 {
+  color: #2d1b4e;
+  font-weight: 700;
+  margin-top: 2rem;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(255, 149, 0, 0.2);
+}
+
+article h3 {
+  color: #5a4a6f;
+  font-weight: 700;
+}
+
+article p,
+article li {
+  color: #5a4a6f;
+  line-height: 1.8;
 }
 
 /* Links */
-a {
-  font-weight: 600;
-}
-
 article a {
   color: #ff9500;
+  font-weight: 600;
 }
 
 article a:hover {
@@ -160,47 +169,45 @@ article a:hover {
   text-decoration: underline;
 }
 
-/* Blockquotes */
+/* Blockquotes - peachy gradient */
 blockquote {
-  background: linear-gradient(135deg, rgba(255, 149, 0, 0.08), rgba(168, 85, 247, 0.05));
+  background: linear-gradient(135deg, rgba(255, 149, 0, 0.08), rgba(255, 107, 157, 0.05));
   border-left: 4px solid #ff9500;
   border-radius: 0 12px 12px 0;
   padding: 16px 20px;
   color: #5a4a6f;
-}
-
-[data-theme='dark'] blockquote {
-  color: #d4c5e8;
+  font-style: italic;
 }
 
 /* Admonitions */
 .admonition {
   border-radius: 12px;
   border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .admonition-note {
-  background: rgba(99, 102, 241, 0.1);
+  background: rgba(99, 102, 241, 0.08);
   border-left: 4px solid #6366f1;
 }
 
 .admonition-tip {
-  background: rgba(34, 197, 94, 0.1);
+  background: rgba(34, 197, 94, 0.08);
   border-left: 4px solid #22c55e;
 }
 
 .admonition-info {
-  background: rgba(59, 130, 246, 0.1);
-  border-left: 4px solid #3b82f6;
+  background: rgba(255, 149, 0, 0.08);
+  border-left: 4px solid #ff9500;
 }
 
 .admonition-caution {
-  background: rgba(251, 191, 36, 0.1);
+  background: rgba(251, 191, 36, 0.08);
   border-left: 4px solid #fbbf24;
 }
 
 .admonition-danger {
-  background: rgba(239, 68, 68, 0.1);
+  background: rgba(239, 68, 68, 0.08);
   border-left: 4px solid #ef4444;
 }
 
@@ -218,63 +225,49 @@ blockquote {
   font-weight: 700;
 }
 
-/* Footer */
+/* Footer - dark purple gradient */
 .footer--dark {
-  background: linear-gradient(135deg, #2d1b4e, #1a0a2e);
+  background: linear-gradient(135deg, #2d1b4e, #1a0a2e) !important;
 }
 
 .footer__title {
-  color: #ff9500;
+  color: #ff9500 !important;
 }
 
 /* Code blocks */
 pre {
   border-radius: 12px;
   border: 1px solid rgba(255, 149, 0, 0.1);
+  background: #ffffff !important;
 }
 
 code {
   border-radius: 6px;
   background: rgba(255, 149, 0, 0.1);
   color: #d97d00;
-}
-
-[data-theme='dark'] code {
-  background: rgba(255, 149, 0, 0.2);
-  color: #ffa31a;
+  padding: 2px 6px;
 }
 
 /* Tables */
 table {
   border-radius: 12px;
   overflow: hidden;
+  border: 1px solid rgba(255, 149, 0, 0.1);
 }
 
 th {
-  background: rgba(255, 149, 0, 0.1);
-}
-
-/* Cards / Feature boxes */
-.card {
-  border-radius: 16px;
-  border: 1px solid rgba(255, 149, 0, 0.1);
-  background: white;
-}
-
-[data-theme='dark'] .card {
-  background: #2d1b4e;
-  border-color: rgba(255, 149, 0, 0.2);
-}
-
-/* Back to SUITE link in navbar */
-.navbar__item[href*="getsuite.app"] {
-  color: #a855f7 !important;
+  background: rgba(255, 149, 0, 0.08) !important;
+  color: #2d1b4e;
   font-weight: 700;
+}
+
+td {
+  color: #5a4a6f;
 }
 
 /* Breadcrumbs */
 .breadcrumbs__link {
-  color: #5a4a6f;
+  color: #888;
 }
 
 .breadcrumbs__link:hover {
@@ -284,13 +277,14 @@ th {
 /* Pagination */
 .pagination-nav__link {
   border-radius: 12px;
-  border: 1px solid rgba(255, 149, 0, 0.2);
+  border: 1px solid rgba(255, 149, 0, 0.15);
+  background: white;
   transition: all 0.2s;
 }
 
 .pagination-nav__link:hover {
   border-color: #ff9500;
-  background: rgba(255, 149, 0, 0.05);
+  background: rgba(255, 149, 0, 0.03);
 }
 
 .pagination-nav__sublabel {
@@ -300,4 +294,22 @@ th {
 .pagination-nav__label {
   color: #ff9500;
   font-weight: 700;
+}
+
+/* DocCard links */
+.card {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 149, 0, 0.1);
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.card:hover {
+  border-color: #ff9500;
+  box-shadow: 0 4px 12px rgba(255, 149, 0, 0.1);
+}
+
+/* Back to SUITE link styling */
+.navbar__item[href*="getsuite.app"]:first-of-type {
+  color: #a855f7 !important;
 }

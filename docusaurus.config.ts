@@ -46,7 +46,8 @@ const config: Config = {
     image: 'img/suite-token.png',
     colorMode: {
       defaultMode: 'light',
-      respectPrefersColorScheme: true,
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
     },
     navbar: {
       title: 'SUITE Docs',
